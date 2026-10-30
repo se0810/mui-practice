@@ -4,7 +4,7 @@ import type { Movie } from './movies'
 import { emptyMovie, genres, loadMovies, selectMovies, statuses, STORAGE_KEY } from './movies'
 import './App.css'
 
-const theme = createTheme({ palette: { mode: 'dark', primary: { main: '#c8ed86' }, background: { default: '#101411', paper: '#1b211c' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 } })
+const theme = createTheme({ palette: { mode: 'dark', primary: { main: '#90CAF9' }, background: { default: '#101411', paper: '#1b211c' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 } })
 
 export default function App() {
   const [initial] = useState(loadMovies)
