@@ -4,7 +4,26 @@ import type { Movie } from './movies'
 import { emptyMovie, genres, loadMovies, selectMovies, statuses, STORAGE_KEY } from './movies'
 import './App.css'
 
-const theme = createTheme({ palette: { mode: 'light', primary: { main: '#1565C0', contrastText: '#ffffff' }, background: { default: '#ffffff', paper: '#ffffff' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 } })
+const theme = createTheme({ palette: { mode: 'light', primary: { main: '#1565C0', contrastText: '#ffffff' }, background: { default: '#ffffff', paper: '#ffffff' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        outlined: { border: '2px solid #7b8794' },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-notchedOutline': { borderColor: '#7b8794', borderWidth: 2 },
+          '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#455468' },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#1565C0', borderWidth: 2 },
+          '&.Mui-error .MuiOutlinedInput-notchedOutline': { borderColor: '#d32f2f' },
+          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': { borderColor: '#b8c0ca' },
+        },
+      },
+    },
+  },
+})
 
 export default function App() {
   const [initial] = useState(loadMovies)
