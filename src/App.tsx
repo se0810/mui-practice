@@ -4,7 +4,7 @@ import type { Movie } from './movies'
 import { emptyMovie, genres, loadMovies, selectMovies, statuses, STORAGE_KEY } from './movies'
 import './App.css'
 
-const theme = createTheme({ palette: { mode: 'dark', primary: { main: '#90CAF9' }, background: { default: '#101411', paper: '#1b211c' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 } })
+const theme = createTheme({ palette: { mode: 'light', primary: { main: '#1565C0', contrastText: '#ffffff' }, background: { default: '#ffffff', paper: '#ffffff' } }, typography: { fontFamily: '"Segoe UI", "Noto Sans JP", sans-serif', button: { textTransform: 'none', fontWeight: 700 } }, shape: { borderRadius: 16 } })
 
 export default function App() {
   const [initial] = useState(loadMovies)
@@ -52,7 +52,7 @@ export default function App() {
     setDraft(null); setNotice('映画を保存しました')
   }
   return <ThemeProvider theme={theme}><CssBaseline />
-    <AppBar position="static" elevation={0} color="transparent" sx={{ borderBottom: '1px solid #30382e' }}><Toolbar sx={{ gap: 2 }}><Avatar sx={{ bgcolor: 'primary.main', color: '#182113', fontWeight: 900 }}>M</Avatar><Typography variant="h6" sx={{ flex: 1, fontWeight: 800 }}>MOVIE SHELF</Typography><Chip label="あなた専用の映画ノート" variant="outlined" sx={{ display: { xs: 'none', sm: 'flex' } }} /></Toolbar></AppBar>
+    <AppBar position="static" elevation={0} color="transparent" sx={{ borderBottom: '1px solid #e0e0e0' }}><Toolbar sx={{ gap: 2 }}><Avatar sx={{ bgcolor: 'primary.main', color: '#182113', fontWeight: 900 }}>M</Avatar><Typography variant="h6" sx={{ flex: 1, fontWeight: 800 }}>MOVIE SHELF</Typography><Chip label="あなた専用の映画ノート" variant="outlined" sx={{ display: { xs: 'none', sm: 'flex' } }} /></Toolbar></AppBar>
     <Container maxWidth="lg" sx={{ py: { xs: 3, md: 6 } }}>
       <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ justifyContent: "space-between", alignItems: { sm: 'center' }, gap: 3, mb: 4 }}><Box><Typography variant="overline" color="primary">YOUR PERSONAL CINEMA</Typography><Typography component="h1" variant="h3" sx={{ fontWeight: 800,  fontSize: { xs: 32, md: 44 } }}>映画を、思い出に。</Typography><Typography color="text.secondary" sx={{ mt: 1 }}>観たい作品も、忘れたくない一本も。あなただけの棚に。</Typography></Box><Button variant="contained" size="large" onClick={() => open(emptyMovie())}>＋ 映画を登録</Button></Stack>
       {storageError && <Alert severity="warning" sx={{ mb: 3 }} action={<Button color="inherit" onClick={retryStorage}>保存を再試行</Button>}>{storageError}</Alert>}
